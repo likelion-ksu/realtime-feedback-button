@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>audience</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        html, body {
+            height: 100%;
+            background-color: #F781BE;
+        }
+        #button {
+            height: 100%; 
+        }
+    </style>
+    <script>
+        function click_button(){
+            var req = new XMLHttpRequest();
+            req.open('POST', 'button/click');
+            req.send();
+            req.onreadystatechange = function () {
+                if (req.readyState === XMLHttpRequest.DONE) {
+                    if (req.status === 200) {
+                        console.log(req.responseText);
+                    } else {
+                        console.log('[' + req.status + ']: ' + req.statusText);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="button" onclick="click_button()"></div>
+</body>
+</html>

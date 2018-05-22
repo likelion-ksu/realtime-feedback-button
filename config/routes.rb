@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/audience' => 'button#audience'
   get '/speaker' => 'button#speaker'
   
-  post 'button#check'
-  post 'button#click'
+  post 'button/check'
+  post 'button/click'
+  post 'button/toggle'
 end
